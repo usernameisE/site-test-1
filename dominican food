@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vente de Repas Dominicains</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            animation: fadeIn 2s;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        h1, h2 {
+            animation: slideInFromLeft 1s ease-out;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            animation: fadeInUp 1s ease-out;
+        }
+        .menu-item {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e7e7e7;
+            border-radius: 5px;
+            animation: fadeIn 1s;
+        }
+        .menu-item h4 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #contact form input, #contact form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #contact form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #contact form button:hover {
+            background-color: #0056b3;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes slideInFromLeft {
+            0% { transform: translateX(-100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .menu-item img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        .menu-item:hover img {
+            animation: zoomIn 1s forwards;
+        }
+        @keyframes zoomIn {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenue sur Notre Boutique de Repas Dominicains</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="menu">
+        <h2>Notre Menu</h2>
+        <div class="menu-section">
+            <h3>Entrées</h3>
+            <div class="menu-item">
+                <h4>Empanadas</h4>
+                <p>Feuilleté farci de viande hachée, poulet ou fromage</p>
+                <span>5€</span>
+                <button onclick="commander('Empanadas')">Commander</button>
+                <img src="empanadas.jpg" alt="Empanadas">
+            </div>
+            <div class="menu-item">
+                <h4>Arepas</h4>
+                <p>Galette de maïs farcie avec du fromage ou du poulet</p>
+                <span>4€</span>
+                <button onclick="commander('Arepas')">Commander</button>
+                <img src="arepas.jpg" alt="Arepas">
+            </div>
+        </div>
+        <div class="menu-section">
+            <h3>Plats Principaux</h3>
+            <div class="menu-item">
+                <h4>La Bandera</h4>
+                <p>Riz blanc, haricots rouges et viande (poulet, bœuf ou porc)</p>
+                <span>12€</span>
+                <button onclick="commander('La Bandera')">Commander</button>
+                <img src="bandera.jpg" alt="La Bandera">
+            </div>
+            <div class="menu-item">
+                <h4>Mangu con Los Tres Golpes</h4>
+                <p>Purée de banane plantain, fromage frit, salami et œuf</p>
+                <span>10€</span>
+                <button onclick="commander('Mangu con Los Tres Golpes')">Commander</button>
+                <img src="mangu.jpg" alt="Mangu con Los Tres Golpes">
+            </div>
+            <div class="menu-item">
+                <h4>Sancocho</h4>
+                <p>Soupe épaisse avec plusieurs viandes et légumes</p>
+                <span>15€</span>
+                <button onclick="commander('Sancocho')">Commander</button>
+                <img src="sancocho.jpg" alt="Sancocho">
+            </div>
+            <div class="menu-item">
+                <h4>Tostones</h4>
+                <p>Banane plantain frite servie avec sauce maison</p>
+                <span>6€</span>
+                <button onclick="commander('Tostones')">Commander</button>
+                <img src="tostones.jpg" alt="Tostones">
+            </div>
+        </div>
+        <div class="menu-section">
+            <h3>Desserts</h3>
+            <div class="menu-item">
+                <h4>Flan</h4>
+                <p>Crème dessert sucrée à base de lait et d'œufs, avec caramel</p>
+                <span>5€</span>
+                <button onclick="commander('Flan')">Commander</button>
+                <img src="flan.jpg" alt="Flan">
+            </div>
+            <div class="menu-item">
+                <h4>Habichuelas con Dulce</h4>
+                <p>Crème sucrée à base de haricots rouges, lait de coco et épices</p>
+                <span>7€</span>
+                <button onclick="commander('Habichuelas con Dulce')">Commander</button>
+                <img src="habichuelas.jpg" alt="Habichuelas con Dulce">
+            </div>
+        </div>
+        <div class="menu-section">
+            <h3>Boissons</h3>
+            <div class="menu-item">
+                <h4>Jugo de Chinola</h4>
+                <p>Jus de fruit de la passion</p>
+                <span>3€</span>
+                <button onclick="commander('Jugo de Chinola')">Commander</button>
+                <img src="chinola.jpg" alt="Jugo de Chinola">
+            </div>
+            <div class="menu-item">
+                <h4>Morir Soñando</h4>
+                <p>Boisson sucrée à base de lait et d'orange</p>
+                <span>4€</span>
+                <button onclick="commander('Morir Soñando')">Commander</button>
+                <img src="morirsonando.jpg" alt="Morir Soñando">
+            </div>
+            <div class="menu-item">
+                <h4>Café Dominicano</h4>
+                <p>Café fort servi avec du sucre ou sans</p>
+                <span>2€</span>
+                <button onclick="commander('Café Dominicano')">Commander</button>
+                <img src="cafe.jpg" alt="Café Dominicano">
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contactez-nous</h2>
+        <form id="formContact">
+            <input type="text" placeholder="Votre nom" required id="nom">
+            <input type="email" placeholder="Votre email" required id="email">
+            <textarea placeholder="Votre message" required id="message"></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+    <section id="commande">
+        <h2>Confirmation de commande</h2>
+        <p id="confirmation-message"></p>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
